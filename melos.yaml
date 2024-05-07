@@ -1,4 +1,4 @@
-name: image_size_getter_project_workspaces
+name: image_size_getter
 
 packages:
   - example/

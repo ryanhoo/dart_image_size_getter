@@ -94,25 +94,26 @@ mixin SimpleTypeValidator on BaseDecoder {
 
   @override
   bool isValid(ImageInput input) {
-    final length = input.length;
     final header = input.getRange(
       0,
       simpleFileHeaderAndFooter.startBytes.length,
-    );
-    final footer = input.getRange(
-      length - simpleFileHeaderAndFooter.endBytes.length,
-      length,
     );
 
     final headerEquals = compareTwoList(
       header,
       simpleFileHeaderAndFooter.startBytes,
     );
-    final footerEquals = compareTwoList(
-      footer,
-      simpleFileHeaderAndFooter.endBytes,
-    );
-    return headerEquals && footerEquals;
+    // final length = input.length;
+    // final footer = input.getRange(
+    //   length - simpleFileHeaderAndFooter.endBytes.length,
+    //   length,
+    // );
+    // final footerEquals = compareTwoList(
+    //   footer,
+    //   simpleFileHeaderAndFooter.endBytes,
+    // );
+    // return headerEquals && footerEquals;
+    return headerEquals;
   }
 }
 
